@@ -13,20 +13,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    cap_add:
-      - NET_ADMIN
-    devices:
-      - /dev/net/tun:/dev/net/tun
   zerotier:
     image: zyclonite/zerotier:latest
-    container_name: zerotier-one
+    container_name: zerotier
     restart: unless-stopped
     network_mode: host
-    devices:
-      - /dev/net/tun:/dev/net/tun
     volumes:
       - ./zerotier-config:/var/lib/zerotier-one
     cap_add:
       - NET_ADMIN
-      - SYS_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     command: zerotier-cli join ${NETWORK_ID}
