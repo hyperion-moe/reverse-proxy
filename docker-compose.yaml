@@ -6,7 +6,7 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 25565:25565
+      - 8000:8000
     volumes:
       - ./zoraxy/config/:/opt/zoraxy/config/
       - ./zoraxy/plugin/:/opt/zoraxy/plugin/
