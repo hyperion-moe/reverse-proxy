@@ -16,3 +16,7 @@ services:
     environment:
       FASTGEOIP: "true"
       TZ: "America/New_York"
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
