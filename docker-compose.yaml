@@ -15,5 +15,6 @@ services:
       - "host.docker.internal:host-gateway"
     cap_add:
       - NET_ADMIN
+      - SYS_ADMIN
     devices:
       - /dev/net/tun:/dev/net/tun
