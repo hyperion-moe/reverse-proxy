@@ -29,4 +29,4 @@ services:
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
-    command: ${NETWORK_ID}
+    command: zerotier-cli join ${NETWORK_ID}
