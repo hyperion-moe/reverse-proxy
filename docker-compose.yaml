@@ -13,10 +13,20 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    environment:
-      FASTGEOIP: "true"
-      TZ: "America/New_York"
     cap_add:
       - NET_ADMIN
     devices:
       - /dev/net/tun:/dev/net/tun
+  zerotier:
+    image: zyclonite/zerotier:latest
+    container_name: zerotier-one
+    restart: unless-stopped
+    network_mode: host
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./zerotier-config:/var/lib/zerotier-one
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    command: ${NETWORK_ID}
