@@ -22,6 +22,7 @@ services:
       - ./zerotier-config:/var/lib/zerotier-one
     cap_add:
       - NET_ADMIN
+      - SYS_ADMIN
     devices:
       - /dev/net/tun:/dev/net/tun
     command: zerotier-cli join ${NETWORK_ID}
