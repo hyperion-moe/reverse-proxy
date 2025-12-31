@@ -7,6 +7,7 @@ services:
       - 80:80
       - 443:443
       - 8000:8000
+      - 25565:25565
     volumes:
       - ./zoraxy/config/:/opt/zoraxy/config/
       - ./zoraxy/plugin/:/opt/zoraxy/plugin/
